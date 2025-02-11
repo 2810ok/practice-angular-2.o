@@ -1,0 +1,301 @@
+in peroject-controler.rb
+
+def create
+    @project = Project.new(project_params)
+
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
+        format.json { render :show, status: :created, location: @project }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
+in project-index.html.erb
+<p style="color: green"><%= notice %></p>
+
+<h1>Projects</h1>
+
+<div id="projects">
+  <% @projects.each do |project| %>
+    <%= render project %>
+    <p>
+      <%= link_to "Show this project", project %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New project", new_project_path %>
+
+
+
+project-new.html.erb
+<h1>New project</h1>
+
+<%= render "form", project: @project %>
+
+<br>
+
+<div>
+  <%= link_to "Back to projects", projects_path %>
+</div>
+
+
+
+in def index of project-controll.erb
+ @projects = Project.all
+
+
+
+*******for open the new file ,, index.hmtl.erb
+ def create
+    @project = current_user.projects.build(project_params)
+  
+    if @project.save
+      redirect_to projects_path, notice: 'Project was successfully created.'
+    else
+      render :new
+    end
+  end
+  
+  
+  
+  ***********delte opetion of project;
+  # DELETE /projects/1 or /projects/1.json
+  def destroy
+    @project.destroy!
+
+    respond_to do |format|
+      format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
+
+
+
+******************************all steps for project manger page cartion
+
+Sure, I'll provide you with the steps to create a simplified version where only the project name is captured:
+
+1. **Generate a new Rails application**: If you haven't already, create a new Rails application using the `rails new` command.
+
+2. **Set up Devise for authentication**: Install Devise and set it up according to your needs. Follow the instructions in the Devise documentation to add user authentication to your Rails application.
+
+3. **Generate a Project model**: Use the Rails scaffold generator to create a Project model along with its corresponding controller, views, and routes. Run the following command in your terminal:
+
+   ```bash
+   rails generate scaffold Project name:string user:references
+   ```
+
+   This will generate the necessary files for your Project model, including the association with the User model.
+
+4. **Run migrations**: After generating the scaffold, run migrations to create the projects table in the database:
+
+   ```bash
+   rails db:migrate
+   ```
+
+5. **Modify the Projects Controller**:
+   - Update the `create` action in the `ProjectsController` to associate the newly created project with the current user.
+
+   ```ruby
+   # app/controllers/projects_controller.rb
+
+   def create
+     @project = current_user.projects.build(project_params)
+
+     if @project.save
+       redirect_to projects_path, notice: 'Project was successfully created.'
+     else
+       render :new
+     end
+   end
+   ```
+
+6. **Create a button for project creation**:
+   - Add a button to the project manager page (`app/views/projects/index.html.erb`) for creating new projects. This button will open a form to create a new project.
+
+   ```html
+   <!-- app/views/projects/index.html.erb -->
+
+   <h1>Project Manager</h1>
+
+   <%= link_to "Create New Project", new_project_path, class: "btn btn-primary mb-3" %>
+
+   <%= render @projects %>
+   ```
+
+7. **Create a form for creating projects**:
+   - Create a new view file for the project creation form (`app/views/projects/new.html.erb`).
+
+   ```html
+   <!-- app/views/projects/new.html.erb -->
+
+   <h2>Create New Project</h2>
+
+   <%= form_with(model: @project, url: projects_path) do |form| %>
+     <div>
+       <%= form.label :name %>
+       <%= form.text_field :name %>
+     </div>
+     <div>
+       <%= form.submit "Create Project", class: "btn btn-primary" %>
+     </div>
+   <% end %>
+   ```
+
+8. **Modify the Projects Controller to handle the new action**:
+   - Update the `new` action in the `ProjectsController` to instantiate a new project object.
+
+   ```ruby
+   # app/controllers/projects_controller.rb
+
+   def new
+     @project = Project.new
+   end
+   ```
+
+9. **Ensure Authentication for Users**:
+   - Make sure the project manager page is only accessible to authenticated users. You can use Devise's `authenticate_user!` method as a before_action in your ProjectsController.
+
+   ```ruby
+   # app/controllers/projects_controller.rb
+
+   before_action :authenticate_user!
+   ```
+
+10. **Display Projects for Current User Only**:
+    - Modify the index action in the `ProjectsController` to fetch only the projects belonging to the current user.
+
+    ```ruby
+    # app/controllers/projects_controller.rb
+
+    def index
+      @projects = current_user.projects
+    end
+    ```
+
+11. **Update Views to display user's projects**:
+    - Modify the views to only display projects belonging to the current user. You can iterate over `@projects` in the index view and display them accordingly.
+
+    ```html
+    <!-- app/views/projects/index.html.erb -->
+
+    <h1>My Projects</h1>
+    <ul>
+      <% @projects.each do |project| %>
+        <li><%= project.name %></li>
+      <% end %>
+    </ul>
+    ```
+
+With these steps, users will be able to create projects with only a name through a button on the project manager page, and each project will be associated with the user who created it. Users will only see their own projects on the project manager page.
+
+
+
+*************************open using 
+<a href="<%= new_project_path %>" class="mt-2 list-group-item list-group-item-action py-2 ripple" style="margin-left: 4px;">
+    <i class="fas fa-paint-brush fa-fw me-1"></i><span>Design Templates</span>
+</a>
+
+
+need to make changes ***************************************
+In your User model (app/models/user.rb), you should have a has_many association to specify that a user can have many projects:
+
+ruby
+Copy code
+class User < ApplicationRecord
+  has_many :projects
+end
+In your Project model (app/models/project.rb), you should have a belongs_to association to specify that a project belongs to a user:
+
+ruby
+Copy code
+class Project < ApplicationRecord
+  belongs_to :user
+end
+
+****************************************************so i want to show the past creted project in my new.html.erb oin project *****
+
+Fetch Previously Created Projects: In your controller action (likely the new action in ProjectsController), fetch the previously created projects. You can do this by querying the database for projects associated with the current user.
+ruby
+Copy code
+# app/controllers/projects_controller.rb
+
+def new
+  @project = Project.new
+  @previous_projects = current_user.projects
+end
+Pass Projects to the View: Pass the @previous_projects instance variable to your new.html.erb view so it can be accessed and rendered.
+html
+Copy code
+<!-- app/views/projects/new.html.erb -->
+
+<h1>New Project</h1>
+
+<% @previous_projects.each do |project| %>
+  <p>Previous Project: <%= project.name %></p>
+<% end %>
+
+<%= render 'form', project: @project %>
+Display Projects in the View: Iterate over the @previous_projects collection in your new.html.erb view and display the details
+
+
+***********************************edit the file
+# app/controllers/projects_controller.rb
+
+def create
+  @project = current_user.projects.build(project_params)
+
+  respond_to do |format|
+    if @project.save
+      format.html { redirect_to new_project_path, notice: 'Project was successfully created.' }
+      format.json { render :show, status: :created, location: @project }
+    else
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @project.errors, status: :unprocessable_entity }
+    end
+  end
+end
+
+
+
+
+
+<body>
+  <!-- app/views/projects/new.html.erb -->
+
+  <h2>Create New Project</h2>
+
+  <%= form_with(model: @project, url: projects_path) do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.submit "Create Project", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <!-- Display the newly created project if available -->
+  <% if @project.persisted? %>
+    <h3>Newly Created Project</h3>
+    <p>Name: <%= @project.name %></p>
+    <!-- Add more project details here as needed -->
+  <% end %>
+
+  <hr>
+
+  <!-- Display previous projects -->
+  <h1>Previous Projects</h1>
+  <% @previous_projects.each do |project| %>
+    <p>Project: <%= project.name %></p>
+  <% end %>
+</body>
+

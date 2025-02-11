@@ -1,0 +1,202 @@
+Certainly! Here are the full steps to implement the Design Templates feature in a Rails application:
+
+1. **Create the Design Templates Page**:
+   - Generate a new HTML file for the Design Templates page:
+
+```bash
+rails generate controller DesignTemplates new save
+```
+
+   - This will create the necessary controller (`design_templates_controller.rb`) and views (`new.html.erb` and `save.html.erb`).
+
+2. **Set Up Routes**:
+   - Define routes for the Design Templates actions in `config/routes.rb`:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  # Other routes...
+
+  get 'design_templates/new', to: 'design_templates#new'
+  post 'design_templates/save', to: 'design_templates#save'
+end
+```
+
+3. **Create the Form**:
+   - Open `app/views/design_templates/new.html.erb` and create the form for creating a new design template:
+
+```html
+<!-- app/views/design_templates/new.html.erb -->
+<%= form_with(url: '/design_templates/save', method: :post) do |form| %>
+  <!-- Add input fields for project selection and template data -->
+  <div class="form-group">
+    <%= form.label :project_id, "Select Project" %>
+    <%= select_tag :project_id, options_for_select(current_user.projects.map { |p| [p.name, p.id] }), class: "form-control" %>
+  </div>
+  <!-- Add input fields for template data -->
+  <div class="form-group">
+    <%= form.label :name_of_certificate, "Name of Certificate" %>
+    <%= form.text_field :name_of_certificate, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :issuing_institution, "Issuing Institution" %>
+    <%= form.text_field :issuing_institution, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :write_up, "Write-up about event" %>
+    <%= form.text_area :write_up, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :edit_template_img, "Edit Template Image" %>
+    <%= form.file_field :edit_template_img, class: "form-control" %>
+  </div>
+  <!-- Add more input fields as needed -->
+
+  <%= form.submit "Save My Credential Template", class: "btn btn-primary" %>
+<% end %>
+
+4. **Create the Controller Actions**:
+   - Open `app/controllers/design_templates_controller.rb` and define the `new` and `save` actions:
+
+```ruby
+# app/controllers/design_templates_controller.rb
+class DesignTemplatesController < ApplicationController
+  def new
+    @template = Template.new
+  end
+
+  def save
+    @template = Template.new(template_params)
+    if @template.save
+      redirect_to award_credentials_path, notice: 'Credential template saved successfully.'
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def template_params
+    params.require(:template).permit(:project_id, :name_of_certificate, :issuing_institution, :write_up, :edit_template_img)
+  end
+end
+```
+
+5. **Create the Template Model**:
+   - Generate the Template model with the necessary attributes:
+
+```bash
+rails generate model Template project:references name_of_certificate:string issuing_institution:string write_up:text edit_template_img:string
+```
+
+   - Run the migration to create the database table:
+
+```bash
+rails db:migrate
+```
+
+6. **Update the User Model** (if not already done):
+   - Make sure your User model has the necessary associations with projects and templates.
+
+7. **Secure the Design Templates Page**:
+   - Ensure that only authenticated users can access the Design Templates page by using authentication mechanisms like Devise.
+
+8. **Styling and UI Enhancements**:
+   - Apply CSS and JavaScript to enhance the appearance and interactivity of the Design Templates page and form.
+
+9. **Testing**:
+   - Test the functionality thoroughly to ensure that users can create and save design templates successfully.
+
+By following these steps, you should be able to implement the Design Templates feature in your Rails application. Remember to customize the code and UI according to your specific requirements and preferences.
+
+
+
+
+
+
+My apologies for the oversight. Let's add the code and instructions for the Award Credentials page:
+
+1. **Create the Award Credentials Page**:
+   - Generate a new HTML file for the Award Credentials page:
+
+```bash
+rails generate controller AwardCredentials index
+```
+
+   - This will create the necessary controller (`award_credentials_controller.rb`) and views (`index.html.erb`).
+
+2. **Set Up Routes**:
+   - Define a route for the Award Credentials action in `config/routes.rb`:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  # Other routes...
+
+  get 'award_credentials/index', to: 'award_credentials#index'
+end
+```
+
+3. **Create the View**:
+   - Open `app/views/award_credentials/index.html.erb` and add the necessary HTML code to display the saved credential templates:
+
+```html
+<!-- app/views/award_credentials/index.html.erb -->
+<% @templates.each do |template| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Name of Certificate: <%= template.name_of_certificate %></h5>
+      <p class="card-text">Issuing Institution: <%= template.issuing_institution %></p>
+      <p class="card-text">Write-up about event: <%= template.write_up %></p>
+      <!-- Add more fields as needed -->
+    </div>
+  </div>
+<% end %>
+```
+
+4. **Update the Controller**:
+   - Open `app/controllers/award_credentials_controller.rb` and define the `index` action to fetch and pass the saved templates to the view:
+
+```ruby
+# app/controllers/award_credentials_controller.rb
+class AwardCredentialsController < ApplicationController
+  def index
+    @templates = current_user.templates
+  end
+end
+```
+
+5. **Secure the Page**:
+   - Ensure that only authenticated users can access the Award Credentials page by using authentication mechanisms like Devise.
+
+6. **Testing**:
+   - Test the functionality thoroughly to ensure that users can view their saved credential templates on the Award Credentials page.
+
+This completes the setup for the Award Credentials page. Make sure to customize the views and controllers as needed for your application.
+
+
+<%= form_with(model: @template, url: award_credentials_index_path, method: :post) do |form| %>
+
+    <div class="form-group">
+      <%= form.label :project_id, "Select Project", for: "project_id" %>
+      <%= select_tag :project_id, options_for_select(current_user.projects.map { |p| [p.name, p.id] }), class: "form-control", id: "project_id" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :name_of_certificate, "Name of Certificate", for: "name_of_certificate" %>
+      <%= form.text_field :name_of_certificate, class: "form-control", id: "name_of_certificate" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :issuing_institution, "Issuing Institution", for: "issuing_institution" %>
+      <%= form.text_field :issuing_institution, class: "form-control", id: "issuing_institution" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :write_up, "Write-up about event", for: "write_up" %>
+      <%= form.text_area :write_up, class: "form-control", id: "write_up" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :edit_template_img, "Edit Template Image", for: "edit_template_img" %>
+      <%= form.file_field :edit_template_img, class: "form-control", id: "edit_template_img" %>
+    </div>
+    <%= form.submit "Save My Credential Template", class: "btn btn-primary" %>
+  <% end %>
+  

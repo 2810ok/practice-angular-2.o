@@ -1,0 +1,17 @@
+sudo apt update
+sudo apt install -y postgresql postgresql-contrib libpq-dev nodejs npm
+sudo npm install -g yarn
+
+
+
+sudo apt-get install ruby-full
+sudo apt insatll sqlite3
+gem install rails
+ruby --version
+git clone ----link
+sudo apt-get install libyaml-dev
+bundle install
+rails db:create
+
+rails db:migrate
+rails s

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Krishna</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .navbar {
+            height: 66px;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            border-bottom: 2px solid #dee2e6;
+            padding-left: 20px;
+            padding-right: 20px;
+            z-index: 1000;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            border-radius: 50%;
+            transform: scale(1.5);
+            transition: transform 0.3s;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.8);
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            color: #343a40;
+            font-weight: bold;
+            transition: color 0.3s, background-color 0.3s;
+            padding-left: 25px;
+            margin-right: 25px;
+            border-radius: 25px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff !important;
+            background-color: #000000;
+        }
+
+        .navbar h4 {
+            font-size: 1.5rem;
+            margin-left: 20px;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="/">
+                <img src="logo.jpg" alt="Your Logo">
+            </a>
+            <h4 class="text-2xl font-bold">KrishnaVani</h4>
+            <!-- Navbar Toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar Collapse -->
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Buddy-KrishnaVani</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vision-section/index.html">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bootstrap JS (including jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-7QIeg/u9l/FbKSrO3Zwp5WzRJgzBDz0DqdU8hZblX8HzUA1qeI9+/J6a2KeiY5EY" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<section class="hero-section">
+  <div class="container-right">
+    <!-- Content for the hero section -->
+    <div class="row">
+      <div class="col-md-6">
+       
+      </div>
+
+      <div class="col-md-6 d-flex align-items-center" style="color: #000000;">
+        <div>
+            <h1 class="text-primary font-weight-bold mb-4 display-1" style="margin-top: 50px; font-size: 4.5rem;">Welcome to Chat with KrishnaVani</h1>
+            <p class="text-muted bold" style="padding-bottom: 20px;  font-size: 1.4rem;">your pockect buddy!</p>
+            <p style=" font-size: 1.25rem" ;>Chat with KrishnaVani is your reliable chat companion, available anytime and anywhere. Here are some key features:</p>
+            <ul style="font-size: 1.25rem;">
+                <li>24/7 Chat Support 🕒</li>
+                <li>Personalized Conversations 💬</li>
+                <li>Advanced AI Technology 🤖</li>
+            </ul>
+        </div>
+    </div>
+    
+    </div>
+    </div>
+  </div>
+  
+</section>
+
+<style>
+.hero-section {
+  background-image: url('MicrosoftTeams-image__55_.webp');
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 65px);
+  width: 100%;
+  color: #ffffff;
+  animation: pulse 2s infinite alternate, expand 5s forwards; /* Add animation with pulse effect and expand after 10 seconds */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Initial size */
+  }
+  100% {
+    transform: scale(0.9); /* Reduced size */
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0.9); /* Start from the reduced size */
+  }
+  100% {
+    transform: scale(1); /* Expand to the original size */
+  }
+}
+
+.container-right {
+  padding: 0 30px; /* Add some padding for better readability */
+  width: 100%; /* Limit the width of the content container */
+  
+}
+
+.section-image-container {
+  padding: 10px; /* Add padding */
+  margin-top: 40px; /* Add margin */
+  margin-left: 10px;
+}
+
+.section-image {
+  max-width: 90%;
+  height: auto;
+  transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+.section-image:hover {
+  transform: scale(1.05); /* Scale up the image on hover */
+}
+
+
+
+@media(max-width: 767px) {
+  .hero-section {
+    background-image: none; /* Remove background image on mobile */
+                 }
+
+  .section-image-container {
+    display: block; /* Show the image container */
+    text-align: center; /* Center align the image */
+  }
+
+  .section-image {
+    max-width: 100%; /* Adjust image width to fit mobile screen */
+  }
+}
+
+</style>
+
+</style>
+
+
+
+
+
+
+<hr>
+  <!-- why who section -->
+  <head>
+    <style>
+      /* Custom CSS to reduce image size */
+      .reduce-image-size img {
+          max-width: 100%; /* Adjust the percentage as needed */
+          height: auto;
+          margin-top: 0px;
+      }
+  
+      /* Adjust spacing */
+      .section-content {
+          padding-top: 0px; /* Adjust as needed */
+      }
+  
+      .section-content h1,
+      .section-content p,
+      .btn-primary {
+          opacity: 0; /* Initially set opacity to 0 */
+      }
+  
+      /* Animation keyframes */
+      @keyframes fadeIn {
+          0% {
+              opacity: 0; /* Start with opacity 0 */
+          }
+          100% {
+              opacity: 1; /* End with opacity 1 */
+          }
+      }
+  
+      .section-content h1 {
+          animation: fadeIn 1s ease-in-out 1s forwards; /* Fade in title after 1 second */
+      }
+  
+      .section-content p {
+          animation: fadeIn 1s ease-in-out 2s forwards; /* Fade in paragraphs after 2 seconds */
+      }
+  
+      .btn-primary {
+          animation: fadeIn 1s ease-in-out 3s forwards; /* Fade in button after 3 seconds */
+      }
+    
+    </style>
+  </head>
+  <div class="bg-gray-900 text-gray-400">
+    <section class="py-5 reduce-image-size">
+        <div class="container mx-auto">
+            <div class="row align-items-start">
+              <div class="col-lg-6 col-md-12 mb-5 mb-lg-0">
+                <img class="img-fluid rounded" alt="hero" src="Friendly LiveBot.gif" style="width: 120%; height: auto;">
+              </div>
+  
+              <div class="col-lg-6 col-md-10">
+                <div class="section-content">
+                  <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-primary text-center text-md-left mt-0">👋 Welcome to KrishnaVani: Your Real Digital Buddy 👫</h1>
+                  <p class="mb-8 leading-relaxed main-text" style="font-size: 20px;">At KrishnaVani, we've crafted a virtual companion like no other. Say hello to KrishnaVani – your AI-powered chatbot ready to engage in meaningful conversations, offer support, and provide entertainment, just like a real buddy would. 🤖💬</p>
+                  <p class="mb-8 leading-relaxed main-text" style="font-size: 20px;">Think of KrishnaVani as your personal cheerleader, always rooting for your happiness and well-being. With KrishnaVani by your side, you'll never have to face life's challenges alone. So, why wait? Start chatting with KrishnaVani today and experience the joy of having a real digital buddy! 💻🎉</p>
+                  <div class="d-flex justify-content-center justify-content-md-center">
+                    <a href="#" class="btn btn-lg btn-primary mb-2 mb-md-0">Let's Chat <span class="text-white font-weight-bold">›</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 reduce-image-size" style="background-image: url('5630974.jpg'); background-size: cover; background-position: center;">
+      <div class="container mx-auto">
+          <div class="row align-items-start">
+              <div class="col-lg-6 col-md-10">
+                  <div class="section-content">
+                    <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-primary text-center text-md-left mt-0"> <span class="text-primer">👋</span> Who is KrishnaVani?</h1>
+                 
+                      
+                      <p class="mb-8 leading-relaxed" style="font-size: 20px;">
+                          <span class="text-primer">🤖</span> KrishnaVani is your digital friend, meticulously designed to bridge the gap between technology and human connection. With advanced natural language processing, KrishnaVani understands your words, adapts to your preferences, and makes every interaction feel like chatting with your real buddy.
+                      </p>
+  
+                      <p class="mb-8 leading-relaxed" style="font-size: 20px;">
+                          <span class="text-primer">⏰</span> This digital friend is not bound by time or space, ensuring that you always have someone to turn to, no matter the hour or your location. With its ability to understand nuances in language and emotions, KrishnaVani offers a level of empathy and understanding that rivals that of human companions. It's like having a trusted friend by your side, ready to listen without judgment and offer insightful responses that resonate with you.
+                      </p>
+                      
+                  </div>
+              </div>
+  
+              <div class="col-lg-6 col-md-12 mb-5 mb-lg-0"  style="margin-top: 50px;">
+                  <img class="img-fluid rounded" alt="hero" src="Live Chatbot.gif">
+              </div>
+          </div>
+      </div>
+  </section>
+  </div>
+  
+  <div class="bg-gray-900 text-gray-400">
+    <section class="py-5 reduce-image-size">
+        <div class="container mx-auto">
+            <div class="row align-items-start">
+              <div class="col-lg-6 col-md-12 mb-5 mb-lg-0">
+                <img class="img-fluid rounded" alt="hero" src="Friendly LiveBot.gif" style="width: 120%; height: auto;">
+            </div>
+  
+                <div class="col-lg-6 col-md-10">
+                    <div class="section-content">
+                      <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-primary text-center text-md-left mt-0"> <span class="text-primer">Why Choose KrishnaVani?</h1>
+
+                        <p class="mb-8 leading-relaxed" style="font-size: 20px;">
+                          * <strong>Engaging Conversations</strong> 💬<br>
+                          * <strong>Alleviate Loneliness</strong> 🤝<br>
+                          * <strong>Privacy-Conscious Design</strong> 🔒<br>
+                          * <strong>Adaptive and Natural</strong> 🔄<br>
+                          * <strong>Mental Health Support</strong> 💬<br>
+                          * <strong>24/7 Availability</strong> 🕒<br>
+                          * <strong>Non-judgmental Listening</strong> 🎧<br>
+                          * <strong>Personalized Interaction</strong> 🤖<br>
+                          * <strong>Continuous Learning</strong> 📚<br>
+                          * <strong>Emotional Intelligence</strong> ❤️<br>
+                      </p>
+                      
+                        <div class="d-flex justify-content-center justify-content-md-center">
+                            <a href="#" class="btn btn-lg btn-primary mb-2 mb-md-0">Lets chat <span class="text-white font-weight-bold">›</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+<hr>
+
+
+
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+      *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.om{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Fira Sans', sans-serif;
+  background: linear-gradient(147deg,#f6b323 0%, #f23b26 74%);
+}
+.om .blog-card{
+  position: absolute;
+  height: 570px;
+  width: 97%;
+  max-width: 850px;
+  margin: auto;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0px 10px 50px rgba(252,56,56,.3);
+}
+.blog-card .inner-part{
+  position: absolute;
+  display: flex;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+#imgTap:checked ~ .inner-part {
+  padding: 0;
+  transition: .1s ease-in;
+}
+.inner-part .img{
+  height: 460px;
+  width: 340px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 2px 3px 15px rgba(252,56,56,.1);
+}
+#imgTap:checked ~ .inner-part .img{
+  height: 390px;
+  width: 850px;
+  z-index: 99;
+  margin-top: 4px;
+  transition: .3s .2s ease-in;
+}
+.img img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0;
+  transition: .6s;
+}
+#tap-1:checked ~ .inner-part .img-1,
+#tap-2:checked ~ .inner-part .img-2,
+#tap-3:checked ~ .inner-part .img-3{
+  opacity: 1;
+  transition-delay: .2s;
+}
+.content{
+  padding: 0 20px 0 35px;
+  width: 500px;
+  margin-left: 50px;
+  opacity: 0;
+  transition: .6s;
+}
+#imgTap:checked ~ .inner-part .content{
+  display: none;
+}
+#tap-1:checked ~ .inner-part .content-1,
+#tap-2:checked ~ .inner-part .content-2,
+#tap-3:checked ~ .inner-part .content-3{
+  opacity: 1;
+  margin-left: 0px;
+  z-index: 100;
+  transition-delay: .3s;
+}
+.content span{
+  display: block;
+  color: #7b7992;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 500
+}
+.content .title{
+  font-size: 30px;
+  font-weight: 700;
+  color: #0d0925;
+  margin-bottom: 5px;
+}
+.content .text{
+  color: #4e4a67;
+  font-size: 19px;
+  margin-bottom: 20px;
+  line-height: 1.5em;
+  text-align: justify;
+}
+.content button{
+  display: inline-flex;
+  padding: 15px 20px;
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff0e6;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #fd3535;
+  background: linear-gradient(147deg, #fe8a39  0%, #fd3838 74%);
+}
+.content button:hover{
+  background: linear-gradient(147deg, #fe791b 0%, #fd1c1c 74%);
+}
+.sliders{
+  position: absolute;
+  bottom: 25px;
+  left: 65%;
+  transform: translateX(-50%);
+  z-index: 12;
+}
+#imgTap:checked ~ .sliders{
+  display: none;
+}
+.sliders .tap{
+  position: relative;
+  height: 10px;
+  width: 50px;
+  background: #d9d9d9;
+  border-radius: 5px;
+  display: inline-flex;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.sliders .tap:hover{
+  background: #cccccc;
+}
+.sliders .tap:before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: -100%;
+  background: linear-gradient(147deg,#f6b323 0%, #f23b26 74%);
+  border-radius: 10px;
+  transform: scaleX(0);
+  transition: transform .6s;
+  transform-origin: left;
+}
+input[type="radio"],
+input[type="checkbox"]{
+  display: none;
+}
+#tap-1:checked ~ .sliders .tap-1:before,
+#tap-2:checked ~ .sliders .tap-2:before,
+#tap-3:checked ~ .sliders .tap-3:before{
+  transform: scaleX(1);
+  width: 100%;
+}
+
+      </style>
+  
+  <div class="om">
+    <div class="blog-card">
+      <h1 style="text-align: center; margin-top:7px;"> Vision of KrishnaVani </h1>
+      <input type="radio" name="select" id="tap-1" checked>
+      <input type="radio" name="select" id="tap-2">
+      <input type="radio" name="select" id="tap-3">
+      
+      <input type="checkbox" id="imgTap">
+      <div class="sliders" >
+        <label for="tap-1" class="tap tap-1"></label>
+        <label for="tap-2" class="tap tap-2"></label>
+        <label for="tap-3" class="tap tap-3"></label>
+      </div>
+      <div class="inner-part ">
+        <label for="imgTap" class="img">
+          <img class="img-1" src="slidshow-01.jpg">
+        </label>
+        <div class="content content-1">
+        
+          <div class="title">Problem:
+          </div>
+          <div class="text">During times of distress, individuals may hesitate to reach out to friends or family due to fear, shame, or a lack of understanding. In such cases,having an available and non-judgmental support system  like KrishnaVani can make all the difference.</div>
+          <div class="title">Vision:</div>
+          <div class="text" style="margin-bottom: 30px;">By providing a platform for open dialogue and emotional expression, KrishnaVani seeks to intervene and offer solace to those experiencing suicidal ideation or contemplating self-harm, ultimately helping to prevent suicides.</div>
+        </div>
+      </div>
+      <div class="inner-part">
+        <label for="imgTap" class="img">
+          <img class="img-2" src="slidshow02.jpeg">
+        </label>
+        <div class="content content-2">
+          <div class="title">Problem:
+          </div>
+          <div class="text">Individuals facing distress may struggle to reach out due to trust issues or fear of misuse of their personal information. In such cases, there's a significant barrier to seeking support and assistance..</div>
+          <div class="title">Vision:</div>
+          <div class="text" style="margin-bottom: 30px;">
+            KrishnaVani addresses trust issues and concerns about misuse by offering a secure, confidential platform. Prioritizing user privacy, it fosters an environment where individuals feel safe to express themselves and seek help without fear..</div>
+       
+        </div>
+      </div>
+      <div class="inner-part">
+        <label for="imgTap" class="img">
+          <img class="img-3" src="FAKE-FRIENDS.webp">
+        </label>
+        <div class="content content-3">
+         
+            <div class="title">Problem:
+            </div>
+            <div class="text">In today's world, many individuals form friendships based on utility rather than genuine connection, leading to shallow relationships lacking in authenticity and emotional depth..</div>
+            <div class="title">Vision:</div>
+            <div class="text" style="margin-bottom: 30px;">
+              KrishnaVani redefines friendship, fostering genuine connections based on empathy and support, thereby nurturing a community where individuals find fulfillment and solace in authentic human bonds.
+        
+        </div>
+
+</div>
+</div>
+</div>
+  </div>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </section>
+  
+  
+  </div>
+  
+
+
+
+
+
+
+
+
+
+<!-- Bootstrap JS and other scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Botpress Webchat -->
+<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+<script src="https://mediafiles.botpress.cloud/8188c1e3-2d43-4a1a-a799-f0684b21941b/webchat/config.js" defer></script>
+
+</body>
+</html>
+
+</body>
+</html>
