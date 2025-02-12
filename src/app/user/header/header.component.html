@@ -1,0 +1,30 @@
+<p>header works!</p>
+<p> {{userName}} </p>
+<button (click)="change()"> omkar</button> 
+<button (click)="changeTojoy()"> joy</button> 
+<input [(ngModel)]="value" placeholder="Enter your name">
+<br>
+<b> {{value}}</b> 
+<br>
+<div *ngIf="user==0;else by">welcome</div>
+<div *ngIf="user==0;then hi else by"> </div>
+    <ng-template #hi> hii {{userName}}</ng-template>
+<ng-template #by> byy {{userName}}</ng-template>
+<br> 
+<b> books name are</b>
+<p *ngFor="let book of books"> {{book}} </p>
+<br>
+<b> ngSwitch</b>
+<div [ngSwitch]="getMsg()">
+    <b *ngSwitchCase="'aim'"> you selected for aim</b>
+    <b *ngSwitchCase="'pora book'"> you selected </b>
+    <b *ngSwitchDefault>you slected</b>
+</div>
+<br>
+<div [ngClass]="val>10?'red':'green'">{{val}}</div>
+<div [ngStyle]="{'font-size':fontsize+'px'}"> style text</div>
+
+<br>
+<h1> 
+<div > {{msg}}</div> </h1>
+<button (click)="sendData()"> clcik me</button>

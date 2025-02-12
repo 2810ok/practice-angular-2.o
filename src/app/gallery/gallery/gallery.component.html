@@ -1,0 +1,20 @@
+<p>gallery works!</p>
+<b> {{receivedMessage}}</b>
+<br>
+<br>
+<button  *ngIf="display" (click)="remove()"> remove me</button>
+<br>
+<ng-container >
+    <div *ngIf="false;else elseBlock"> this is div</div>
+    <ng-template #elseBlock> this is tempalete</ng-template>
+
+</ng-container>
+<br>
+<ng-template #ng > welcome to ng template with ng container</ng-template>
+<ng-container *ngTemplateOutlet="ng"> </ng-container>
+<br>
+<ng-content> </ng-content>
+<br> <br>
+
+
+<div appDirectives>Make my background red</div>
