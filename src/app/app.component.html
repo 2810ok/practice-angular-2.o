@@ -1,4 +1,11 @@
+<b> this is using routing navbar</b>
+<br>
+<button routerLink="/dept" routerLinkActive="active" > department</button>
+<button routerLink="/about" routerLinkActive="active" > about</button>
+<button routerLink="/contact" routerLinkActive="active" > contact</button>
+<br>
 
+<router-outlet></router-outlet>
 
 <div class='app-header' (cmsg)="recivemsg($event)" [msg]="msg"> </div> <!-- sending data to child compont-->
 
